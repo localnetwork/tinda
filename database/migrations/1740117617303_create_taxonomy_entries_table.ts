@@ -7,6 +7,17 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
 
+      table.string('uuid').nullable()
+
+      table
+        .integer('taxonomy_id')
+        .unsigned()
+        .references('id')
+        .inTable('taxonomies')
+        .onDelete('CASCADE')
+
+      table.integer('weight').defaultTo(0)
+
       table.timestamp('created_at', { useTz: true }).defaultTo(this.now())
       table.timestamp('updated_at', { useTz: true }).defaultTo(this.now())
     })

@@ -6,7 +6,6 @@ export default class StoreauthMiddleware {
     /**
      * Middleware logic goes here (before the next call)
      */
-    console.log('ctx', ctx)
 
     /**
      * Call next method in the pipeline and return its output

@@ -47,8 +47,6 @@ export default class UserStoresController {
       }
     })
 
-    console.log('Modified usersJson:', JSON.stringify(usersJson, null, 2))
-
     return response.json(usersJson)
   }
 }

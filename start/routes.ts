@@ -14,6 +14,7 @@ import { middleware } from './kernel.js'
 import MediaController from '#controllers/v1/media_controller'
 import StoresController from '#controllers/v1/stores_controller'
 import UserStoresController from '#controllers/v1/user_stores_controller'
+import TaxonomiesController from '#controllers/taxonomies_controller'
 
 const prefix = '/api/v1'
 
@@ -60,5 +61,12 @@ router
     router.get('/seller-center/:store_id/users', [UserStoresController, 'storeUsers'])
   })
 
+  .use(middleware.auth())
+  .prefix(prefix)
+
+router
+  .group(() => {
+    router.post('/taxonomies', [TaxonomiesController, 'store'])
+  })
   .use(middleware.auth())
   .prefix(prefix)
