@@ -63,11 +63,5 @@ router
   .use(middleware.auth())
   .prefix(prefix)
 
-router
-  .group(() => {
-    router.get('/seller-center/:uuid', [StoresController, 'sellerStoreIndex'])
-    router.get('/seller-center/:store_id/users', [UserStoresController, 'storeUsers'])
-  })
-
   .use(middleware.auth())
   .prefix(prefix)
