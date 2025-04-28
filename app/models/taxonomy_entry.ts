@@ -5,6 +5,12 @@ export default class TaxonomyEntry extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
+  @column()
+  declare name: string
+
+  @column()
+  declare taxonomy: number
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
